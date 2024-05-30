@@ -5,10 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(rbenv init - zsh)"
+eval "$(zoxide init zsh)"
 
 # history setup
 HISTFILE=$HOME/.zhistory
@@ -23,7 +26,5 @@ bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
 # alias
-alias alacritty="cd ~/.config/alacritty/"
-alias neovim="cd ~/.config/nvim/"
 alias zsh="nvim ~/.zshrc"
 alias .="nvim ."
